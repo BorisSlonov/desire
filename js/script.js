@@ -110,38 +110,6 @@ function y3() {
 }
 y3();
 
-// $(function () {
-//   var mouseX = 0,
-//     mouseY = 0,
-//     limitX = 15,
-//     limitY = 20;
-//   // Определяет границы, по которым будет двигаться объект
-//   $(window).mousemove(function (e) {
-//     var offset = $(".circle1").offset();
-//     mouseX = Math.min(e.pageX - offset.left, limitX);
-//     mouseY = Math.min(e.pageY - offset.top, limitY);
-//     // Ищет координаты курсора
-//     if (mouseX < 0) mouseX = 0;
-//     // С какого момента (координат) начинать движение за курсором
-//     if (mouseY < 0) mouseY = 0;
-//     // Если курсор находится вне веб-страницы на момент загрузки, то установит объект в координатах x=0, y=0.
-//   });
-
-//   var follower = $(".indicator1");
-//   var xp = 0,
-//     yp = 0; // Начальные координаты объекта на момент загрузки страницы
-//   var loop = setInterval(function () {
-//     // Далее определяется скорость, с которой будет двигаться объект.
-//     // Изменить значение 20, для изменения скорости. Чем больше это значение, тем медленнее движется объект.
-
-//     xp += (mouseX - xp) / 40;
-//     yp += (mouseY - yp) / 40;
-//     follower.css({ marginLeft: xp, marginTop: yp });
-//     // Изменение позиционирования объекта с помощью css
-//   }, 10);
-//   //В данном случае это значение определяет, насколько плавно и быстро будет происходить движение
-// });
-
 $(document).ready(function () {
   var header = $(".header"),
     scrollPrev = 0;
@@ -155,5 +123,25 @@ $(document).ready(function () {
       header.removeClass("out");
     }
     scrollPrev = scrolled;
+  });
+});
+
+jQuery(document).ready(function () {
+  jQuery(".form").submit(function () {
+    var Name = jQuery("#Name").val();
+    var Phone = jQuery("#Phone").val();
+    var Mail =  jQuery("#Mail").val();
+    var Quession = jQuery("#Quession").val();
+    var http = new XMLHttpRequest();
+    var url =
+      "https://script.google.com/macros/s/AKfycbx157NFq4kcKuc7Pg1O885COnK4Pwjs8GCHXb7f7GKWOP8Nmn9XBSFf9XAW-yOhpgnj/exec";
+    var params = "p1=" + Name + "&p2=" + Phone + "&p3=" + Mail + "&p4=" + Quession;
+    http.open("GET", url + "?" + params, true);
+    http.onreadystatechange = function () {
+      if (http.readyState == 4 && http.status == 200) {
+        //alert(http.responseText);
+      }
+    };
+    http.send(null);
   });
 });

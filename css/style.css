@@ -479,7 +479,6 @@ img {
   }
 }
 
-
 .face2 {
   position: absolute;
   left: 40%;
@@ -487,8 +486,6 @@ img {
   display: flex;
   transform: translate(-50%, -50%) rotate(-10deg);
 }
-
-
 
 .face3 {
   position: absolute;
@@ -504,4 +501,12 @@ img {
   .face3 {
     display: none;
   }
+}
+
+.block-form__h3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 140%;
+  color: #e1d7f8;
+  max-width: 240px;
 }
