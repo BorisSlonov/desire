@@ -130,12 +130,13 @@ jQuery(document).ready(function () {
   jQuery(".form").submit(function () {
     var Name = jQuery("#Name").val();
     var Phone = jQuery("#Phone").val();
-    var Mail =  jQuery("#Mail").val();
+    var Mail = jQuery("#Mail").val();
     var Quession = jQuery("#Quession").val();
     var http = new XMLHttpRequest();
     var url =
       "https://script.google.com/macros/s/AKfycbx157NFq4kcKuc7Pg1O885COnK4Pwjs8GCHXb7f7GKWOP8Nmn9XBSFf9XAW-yOhpgnj/exec";
-    var params = "p1=" + Name + "&p2=" + Phone + "&p3=" + Mail + "&p4=" + Quession;
+    var params =
+      "p1=" + Name + "&p2=" + Phone + "&p3=" + Mail + "&p4=" + Quession;
     http.open("GET", url + "?" + params, true);
     http.onreadystatechange = function () {
       if (http.readyState == 4 && http.status == 200) {
